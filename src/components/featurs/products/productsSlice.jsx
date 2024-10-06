@@ -9,7 +9,9 @@ export const getProducts = createAsyncThunk(
   async (_, thunkAPI) => {
     try {
       const res = await axios(`${BASE_URL}/products`);
+      console.log(res.data)
       return res.data;
+      
     } catch (err) {
       console.log(err);
       return thunkAPI.rejectWithValue(err);
@@ -22,7 +24,7 @@ const productsSlice = createSlice({
   initialState: {
     list: [],
     filtered: [],
-    related: [],
+    // related: [],
     isLoading: false,
   },
   reducers: {
@@ -48,6 +50,6 @@ const productsSlice = createSlice({
   },
 });
 
-export const { filterByPrice, getRelatedProducts } = productsSlice.actions;
+export const { filterByPrice } = productsSlice.actions;
 
 export default productsSlice.reducer;

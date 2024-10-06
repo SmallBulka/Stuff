@@ -1,0 +1,45 @@
+.modal{
+    height: 100vh;
+    width: 100vw;
+    background-color: rgba(0, 0, 0, 0.4);
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.content{
+padding: 20px;
+border-radius: 12px;
+background-color: white;
+height: 400px;
+width: 700px;
+}
+
+  
+
+  
+  .left {
+    width: 304px;
+    height: 370px;
+
+
+    background: url(./images/pop.jpg) no-repeat center/contain;
+  }
+
+  .right {
+    color: black;
+
+    font-weight: 700;
+  font-size: 42px;
+  line-height: 51px;
+
+
+  max-width: 500px;
+  margin: 10px 0 24px 0;
+
+
+
+
+  }
