@@ -24,16 +24,21 @@ function Home() {
 
   
   return (
+
     <>
+    
     <Poster/>
     <Products products={list} amount={5} title="Trending"/>
     <Categorits products={categories.list} amount={5} title="Worth seeing"/>
     <Banner/>
     <Products products={filtered} amount={5} title="Less than 100$"/>
+
     {/* <Modal active={modalActive} setActive={setModalActive}/> */}
-    
+
     </>
+    
   )
+  
 }
 
 export default Home

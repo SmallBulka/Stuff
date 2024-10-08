@@ -4,13 +4,13 @@ import Home from './Home/Home'
 import { ROUTES } from '../../utils/routes'
 import SingleProduct from '../Products/SingleProduct'
 
-function AppRoutes() {
-  return (
+const AppRoutes = () => (
+
     <Routes>
         <Route index element={<Home/>}/>
         <Route path={ROUTES.PRODUCT} element={<SingleProduct/>}/>
     </Routes>
-  )
-}
+
+)
 
 export default AppRoutes
