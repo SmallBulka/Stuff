@@ -39,7 +39,7 @@ function Header() {
                 <div className={styles.account}>
                     <Link to={ROUTES.HOME} className={styles.favourites}>
                     <svg className={styles["icon-fav"]}>
-                        <link href={`${process.env.PUBLIC_URL}/sprite.svg#heart`}/>
+                        <use xlinkHref={`${process.env.PUBLIC_URL}/sprite.svg#heart`}/>
                     </svg>
                     </Link>
 

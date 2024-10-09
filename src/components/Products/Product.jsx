@@ -4,9 +4,9 @@ import { Link } from 'react-router-dom';
 import { ROUTES } from '../../utils/routes'
 
 const Product = ({images, title, price, description}) => {
-const currentImg = images[0]
+
 const sizes = [4, 4.5, 5];
-const [currentImage, setCurrentImage] = useState();
+const [currentImg, setCurrentImage] = useState();
 const [currentSize, setCurrentSize] = useState();
 
 useEffect(() => {
@@ -45,7 +45,7 @@ useEffect(() => {
             <span>Sizes:</span>
             <div className={styles.list}>
               {sizes.map(size => (
-                <div onClick={() => setCurrentSize(size)} className={`${styles.size}`}c  key={size}>
+                <div onClick={() => setCurrentSize(size)} className={`${styles.size} ${currentSize === size ? styles.active : ''}`}c  key={size}>
                   {size}
                 </div>
               ))}
@@ -55,7 +55,7 @@ useEffect(() => {
 <p className={styles.description}>{description}</p>
 
 <div className={styles.actions}>
-<button className={styles.add}>Add to cart</button>
+<button className={styles.add} disabled={!currentSize}>Add to cart</button>
 <button className={styles.favorite}>Add to favorites</button>
 </div>
 <div className={styles.bottom}>
