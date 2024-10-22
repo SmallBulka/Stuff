@@ -4,8 +4,15 @@ import styles from '../../styles/Header.module.css'
 import { ROUTES } from '../../utils/routes'
 import avatar from '../../styles/images/avatar.jpg'
 import logo from '../../styles/images/logo.svg'
+import { useDispatch, useSelector } from 'react-redux'
+import { toggleForm } from '../featurs/user/userSlice'
 
 function Header() {
+    const dispatch= useDispatch()
+    const {currentUser} = useSelector(({user})=> user);
+    const handleClick = () => {
+        if(!currentUser) dispatch(toggleForm(true))
+    }
   return (
     <div className={styles.header}>
         <div className={styles.logo}>
@@ -14,7 +21,7 @@ function Header() {
             </Link>
         </div>
             <div className={styles.info}>
-                <div className={styles.user}>
+                <div className={styles.user} onClick={handleClick}>
                     <div className={styles.avatar} style={{backgroundImage: `url(${avatar})`}}/>
                     <div className={styles.username}>Guest</div>
                 </div>

@@ -6,6 +6,7 @@ import Sidebar from "../Sidebar/Sidebar";
 import { useDispatch } from "react-redux";
 import { getCategories } from "../featurs/categories/categoriesSlice";
 import { getProducts } from "../featurs/products/productsSlice";
+import UserForm from "../User/UserForm";
 
 
 function App ()  {
@@ -18,6 +19,7 @@ function App ()  {
   return (
     <div className="app">
       <Header/>
+      <UserForm/>
       
       <div className="container">
         <Sidebar/>
