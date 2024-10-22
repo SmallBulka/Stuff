@@ -13,6 +13,17 @@ export const createUser = createAsyncThunk('users/createUser',
         return thunkAPI.rejectWithValue(err);
     }
 })
+export const loginUser = createAsyncThunk('users/createUser', 
+  async (payload, thunkAPI) =>{
+  try{
+  const res = await axios.post(`${BASE_URL}/auth/login`, payload);
+  return res.data;
+  } catch(err){
+      console.log(err);
+      return thunkAPI.rejectWithValue(err);
+  }
+})
+
 
 
 const userSlice = createSlice({

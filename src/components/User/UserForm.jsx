@@ -13,7 +13,7 @@ function UserForm() {
     const closeForm = ()=> dispatch(toggleForm(false))
   return (
     showForm ? (<>
-        <div className={styles.overlay} onClick={closeForm}>
+        <div className={styles.overlay} >
         <UserSignupForm closeForm={closeForm}/> 
         </div>
         </>) : <></>
