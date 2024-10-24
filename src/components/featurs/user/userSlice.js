@@ -13,13 +13,13 @@ export const createUser = createAsyncThunk('users/createUser',
         return thunkAPI.rejectWithValue(err);
     }
 })
-export const loginUser = createAsyncThunk('users/createUser', 
+export const loginUser = createAsyncThunk('users/loginUser', 
   async (payload, thunkAPI) =>{
   try{
   const res = await axios.post(`${BASE_URL}/auth/login`, payload);
   const login = await axios(`${BASE_URL}/auth/profile`, {
     headers: {
-       "Authorization": `Bearer {res.access_token}`
+       Authorization: `Bearer ${res.data.access_token}`,
     }
   });
   return login.data;
@@ -38,7 +38,7 @@ const userSlice = createSlice({
         currentUser:null,
         cart: [],
         isLoading: false,
-        formType: 'signup',
+        formType: 'singup',
         showForm: false
     },
     reducers: {
@@ -58,6 +58,9 @@ const userSlice = createSlice({
         },
         toggleForm: (state, {payload}) => {
           state.showForm = payload;
+        },
+        toggleFormType: (state, {payload}) => {
+          state.formType = payload;
         }
     },
     extraReducers:(builder)=> {
@@ -66,5 +69,5 @@ const userSlice = createSlice({
     },
   });
 
-export const {addItemToCart, toggleForm} = userSlice.actions;
+export const {addItemToCart, toggleForm, toggleFormType} = userSlice.actions;
 export default userSlice.reducer;

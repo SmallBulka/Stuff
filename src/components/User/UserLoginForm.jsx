@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
 import styles from "../../styles/User.module.css";
 import { useDispatch } from 'react-redux';
-import { createUser } from '../featurs/user/userSlice';
+import { loginUser } from '../featurs/user/userSlice';
 
-function UserLoginForm({closeForm}) {
+function UserLoginForm({toggleFormCurrent, closeForm}) {
     const dispatch= useDispatch()
   const [values, setValues] = useState({
 
@@ -21,7 +21,7 @@ function UserLoginForm({closeForm}) {
 
     if(isEmpty) return
 
-    dispatch(createUser(values))
+    dispatch(loginUser(values))
     closeForm();
   }
   return (
@@ -34,7 +34,7 @@ function UserLoginForm({closeForm}) {
     
           </div>
           <div className={styles.title}>
-     Sing Up
+     Log In
           </div>
           <form className={styles.form} onSubmit={hanbleSummit}>
             <div className={styles.group}>
@@ -47,7 +47,7 @@ function UserLoginForm({closeForm}) {
 
     
     
-            <div className={styles.link}>Create an account</div>
+            <div className={styles.link} onClick={() => toggleFormCurrent("singup")}>Create an account</div>
     
             <button type='submit' className={styles.submit}>
               Login
