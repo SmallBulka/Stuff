@@ -54,7 +54,7 @@ function UserSignupForm({ toggleFormCurrent, closeForm}) {
 
         <div className={styles.link} onClick={() => toggleFormCurrent("login")}>I already have an account</div>
 
-        <button type='submit' className={styles.submit}>
+        <button type='submit' className={styles.submit} >
           Create an account
         </button>
       </form>

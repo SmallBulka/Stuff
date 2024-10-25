@@ -20,9 +20,19 @@ export const loginUser = createAsyncThunk('users/loginUser',
   const login = await axios(`${BASE_URL}/auth/profile`, {
     headers: {
        Authorization: `Bearer ${res.data.access_token}`,
-    }
+    },
   });
   return login.data;
+  } catch(err){
+      console.log(err);
+      return thunkAPI.rejectWithValue(err);
+  }
+})
+export const updateUser = createAsyncThunk('users/updateUser', 
+  async (payload, thunkAPI) =>{
+  try{
+  const res = await axios.put(`${BASE_URL}/users/${payload.id}`, payload);
+  return res.data;
   } catch(err){
       console.log(err);
       return thunkAPI.rejectWithValue(err);
@@ -66,6 +76,7 @@ const userSlice = createSlice({
     extraReducers:(builder)=> {
     builder.addCase(createUser.fulfilled, addCurrentUser);
     builder.addCase(loginUser.fulfilled, addCurrentUser);
+    builder.addCase(updateUser.fulfilled, addCurrentUser);
     },
   });
 
