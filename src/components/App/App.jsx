@@ -22,7 +22,7 @@ function App ()  {
       <UserForm/>
       
       <div className="container">
-        <Sidebar/>
+        <Sidebar />
         <AppRoutes />
       </div>
       <Footer/>

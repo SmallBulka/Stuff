@@ -15,10 +15,10 @@ function Sidebar() {
       <nav>
         <ul className={styles.menu}>
         {list.map(({id, name}) => (
-          <li key={id}>
+          <li key={id} >
             <NavLink className={({siActive}) => `${styles.link} ${siActive ? styles.active : ""}`}
-             to={`/categories/${id}`}>
-              {name}
+             to={`/categories/${id} `}>
+              {name} 
             </NavLink>
           </li>
         ))}

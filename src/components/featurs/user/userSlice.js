@@ -13,21 +13,24 @@ export const createUser = createAsyncThunk('users/createUser',
         return thunkAPI.rejectWithValue(err);
     }
 })
-export const loginUser = createAsyncThunk('users/loginUser', 
-  async (payload, thunkAPI) =>{
-  try{
-  const res = await axios.post(`${BASE_URL}/auth/login`, payload);
-  const login = await axios(`${BASE_URL}/auth/profile`, {
-    headers: {
-       Authorization: `Bearer ${res.data.access_token}`,
-    },
-  });
-  return login.data;
-  } catch(err){
+export const loginUser = createAsyncThunk(
+  "users/loginUser",
+  async (payload, thunkAPI) => {
+    try {
+      const res = await axios.post(`${BASE_URL}/auth/login`, payload);
+      const login = await axios(`${BASE_URL}/auth/profile`, {
+        headers: {
+          Authorization: `Bearer ${res.data.access_token}`,
+        },
+      });
+
+      return login.data;
+    } catch (err) {
       console.log(err);
       return thunkAPI.rejectWithValue(err);
+    }
   }
-})
+);
 export const updateUser = createAsyncThunk('users/updateUser', 
   async (payload, thunkAPI) =>{
   try{
@@ -66,6 +69,9 @@ const userSlice = createSlice({
     
           state.cart = newCart;
         },
+        removeItemFromCart:(state, {payload} ) => {
+          state.cart = state.cart.filter(({id}) => id !== payload.id)
+        },
         toggleForm: (state, {payload}) => {
           state.showForm = payload;
         },
@@ -80,5 +86,5 @@ const userSlice = createSlice({
     },
   });
 
-export const {addItemToCart, toggleForm, toggleFormType} = userSlice.actions;
+export const {addItemToCart, toggleForm, toggleFormType, removeItemFromCart} = userSlice.actions;
 export default userSlice.reducer;
