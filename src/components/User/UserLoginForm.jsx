@@ -4,26 +4,26 @@ import { useDispatch } from 'react-redux';
 import { loginUser } from '../featurs/user/userSlice';
 
 function UserLoginForm({toggleFormCurrent, closeForm}) {
-    const dispatch= useDispatch()
+  const dispatch = useDispatch();
   const [values, setValues] = useState({
-
-    email:"",
-    password:"",
-
+    email: "",
+    password: "",
   });
-  const handleChange = ({target: {value, name}}) => {
-    setValues({...values, [name]: value})
-  }
-  const hanbleSummit = (e) => {
-    e.preventDefault()
 
-    const isEmpty = Object.values(values).some((val)=>!val)
+  const handleChange = ({ target: { value, name } }) => {
+    setValues({ ...values, [name]: value });
+  };
 
-    if(isEmpty) return
+  const handleSubmit = (e) => {
+    e.preventDefault();
 
-    dispatch(loginUser(values))
+    const isNotEmpty = Object.values(values).every((val) => val);
+
+    if (!isNotEmpty) return;
+
+    dispatch(loginUser(values));
     closeForm();
-  }
+  };
   return (
 
         <div className={styles.wrapper}>
@@ -36,7 +36,7 @@ function UserLoginForm({toggleFormCurrent, closeForm}) {
           <div className={styles.title}>
      Log In
           </div>
-          <form className={styles.form} onSubmit={hanbleSummit}>
+          <form className={styles.form} onSubmit={handleSubmit}>
             <div className={styles.group}>
               <input type="email" placeholder='Your email' name="email" value={values.email} autoCapitalize='off'  onChange={handleChange} required/>
             </div>
