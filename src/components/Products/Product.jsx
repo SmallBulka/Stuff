@@ -3,7 +3,10 @@ import styles from '../../styles/Product.module.css'
 import { Link } from 'react-router-dom';
 import { ROUTES } from '../../utils/routes'
 import { useDispatch } from 'react-redux';
-import { addItemToCart, addItemToFavorite} from '../featurs/user/userSlice';
+import { addItemToCart} from '../featurs/user/userSlice';
+import { addItemToFavorite } from '../featurs/user/FavoritesSlice';
+;
+
 
 
 const SIZES = [4, 4.5, 5];
@@ -16,7 +19,8 @@ const Product = (item) => {
     dispatch(addItemToCart(item));
   };
   const addToFavotites = () => {
-    dispatch(addItemToCart(item));
+    dispatch(addItemToFavorite(item));
+
   };
 
 

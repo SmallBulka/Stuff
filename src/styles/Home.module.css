@@ -62,14 +62,14 @@
   justify-content: center;
   flex-direction: column;
   position: relative;
-  z-index: 2;
+  z-index: 1;
 }
 
 .left:before,
 .left:after {
   content: "";
-  display: block;
-  position: absolute;
+
+  position:absolute;
 }
 
 .left:before {
@@ -127,3 +127,65 @@
   color: var(--violet);
   font-weight: 700;
 }
+.modal, .overlay {
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  position: fixed;
+  z-index: 999;
+
+  
+
+}
+.overlay {
+  background: rgba(49,49,49,0.8);
+}
+.conten{
+padding: 20px;
+border-radius: 12px;
+background-color: rgb(255, 255, 255);
+height: 400px;
+width: 700px;
+}
+.contentt {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  line-height: 1.4;
+  background: #4D4D4D;
+  padding: 14px 28px;
+  border-radius: 12px;
+  max-width: 500px;
+  min-width: 300px;
+
+
+}
+.h{
+text-align: center;
+
+}
+.p{
+  margin-top: 10px;
+
+  font-size: small;
+text-align:right
+}
+
+.leftt {
+
+  height: 300px;
+margin: 10px;
+
+  background: url(./images/pop.jpg) no-repeat center/contain;
+}
+.sm{
+margin: 10px;
+margin-left: 140px;
+}
+
+
+

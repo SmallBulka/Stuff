@@ -1,12 +1,13 @@
 import React from 'react'
 import styles from '../../styles/Cart.module.css'
 import { useDispatch, useSelector } from 'react-redux';
-import { removeItemFromFavorite } from '../featurs/user/userSlice';
+import { removeItemFromFavorite } from '../featurs/user/FavoritesSlice';
+
 
 
 function Favorites() {
     const dispatch = useDispatch();
-    const { favorites } = useSelector(({ user }) => user);
+    const { favorites } = useSelector(({ favorites }) => favorites);
   
 
   
@@ -27,7 +28,7 @@ function Favorites() {
                 const { title, category, images, price, id} = item;
   
                 return (
-                  <div className={styles.item} key={id}>
+                  <div className={styles.favor} key={id}>
                     <div
                       className={styles.image}
                       style={{ backgroundImage: `url(${images[0]})` }}

@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect} from "react";
 import AppRoutes from "../Routes/AppRoutes";
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
@@ -9,13 +9,15 @@ import { getProducts } from "../featurs/products/productsSlice";
 import UserForm from "../User/UserForm";
 
 
+
+
 function App ()  {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getCategories());
     dispatch(getProducts());
   }, [dispatch])
-  
+
   return (
     <div className="app">
       <Header/>
@@ -26,6 +28,8 @@ function App ()  {
         <AppRoutes />
       </div>
       <Footer/>
+
+
     </div>
   );
 }
