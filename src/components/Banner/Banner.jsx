@@ -27,7 +27,7 @@ const Banner = () => {
         <div >
             <h2 >10% на первый заказ</h2>
             <div className={styles.leftt}></div>
-            <p className={styles.h}>Подпишитесь на рассылку от Staff, чтобы воспользоваться предложением</p>
+            <p className={styles.text}>Подпишитесь на рассылку от Staff, чтобы воспользоваться предложением</p>
             <button onClick={toggleModal}  className={styles.sm}>Подписаться</button>
             <p className={styles.p}>*Не больше одного письма в неделю</p>           
             
